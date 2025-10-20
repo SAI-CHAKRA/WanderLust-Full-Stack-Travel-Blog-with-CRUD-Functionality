@@ -1,0 +1,48 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+    <div class="row mt-3">
+        <div class="col-8 offset-2">
+            <h3>Create New Listings</h3> <br>                                               <!--here listing is a variable , we can use any variable but make sure when we do req.body.samevariable used in listing.js-->  
+            <form method="POST" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data">         <!-- we keep listings[title] it is another way and in that we created key object pair in listing,it automatically recognize listing has objects(key:value) in that first is title and second is description and so on , it says title is the one key in listings and remaining also-->
+            
+                <div class="mb-3">   <!--  mb-3 means margin bottom 3px-->
+                    <label for="title" class="form-lable" required>Title</label>
+                    <input name="listing[title]" type="text" placeholder="enter a catchy title" class="form-control" required> 
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-lable" >Description</label>
+                    <textarea name="listing[description]" placeholder="enter description" class="form-control" required></textarea>
+                    <div class="invalid-feedback">Please enter a short description</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="image" class="form-lable">Upload Listing Image</label>
+                    <input name="listing[image]" type="file" placeholder="enter image url" class="form-control" required> 
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label for="price" class="form-lable" >price</label>
+                        <input name="listing[price]" type="text" placeholder="1200" class="form-control" > 
+                        <div class="invalid-feedback">Price should be valid</div>
+                    </div>
+    
+                    <div class="mb-3 col-md-8">
+                        <label for="country" class="form-lable">country</label>
+                        <input name="listing[country]" type="text" placeholder="India" class="form-control" required> 
+                        <div class="invalid-feedback">Country name should be valid</div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="location" class="form-lable">location</label>
+                    <input name="listing[location]" type="text" placeholder="Jaipur,Rajastan" class="form-control" required> 
+                    <div class="invalid-feedback">Location should be valid</div>
+                </div>
+                <br>
+                <button class="btn btn-dark add-btn">Add</button>
+                <br><br>
+            </form>
+        </div>
+    </div>
+</body>
+

@@ -6,6 +6,12 @@ const passport = require("passport");
 const {saveRedirectUrl} = require("../middleware.js");
 const userController = require("../controllers/user.js");
 
+router.get("/", (req, res) => {
+    // This tells the browser to navigate to the /signup route
+    res.redirect("/signup"); 
+});
+
+
 router       // this is the common route which are used below route paths so we group them together using router.route(path)
     .route("/signup")
     .get(userController.renderSignupForm)
@@ -24,5 +30,6 @@ router
 
 // actual logout is done by passport
 router.get("/logout",userController.logout);
+
 
 module.exports = router;

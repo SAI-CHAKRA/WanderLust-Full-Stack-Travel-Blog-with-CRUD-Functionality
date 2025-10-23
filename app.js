@@ -46,8 +46,8 @@ const dbUrl = process.env.ATLASDB_URL;  // it won't connect to localhost it conn
 main().then(()=>{console.log("connected")}) .catch((err)=>{console.log(err)});
  
 async function main(){
-    // await mongoose.connect(dbUrl);
-    await mongoose.connect(MONGO_URL);
+    await mongoose.connect(dbUrl);
+    // await mongoose.connect(MONGO_URL);
 }
 
 
@@ -56,8 +56,8 @@ async function main(){
 //------
 
 const store = MongoStore.create({
-    // mongoUrl: dbUrl,
-    mongoUrl: MONGO_URL,
+    mongoUrl: dbUrl,
+    // mongoUrl: MONGO_URL,
     crypto:{
         secret:process.env.SECRET,
     },
@@ -135,4 +135,5 @@ app.use((err,req,res,next)=>{
 app.listen(8080,()=>{
     console.log("server listening at 8080 port");
 });
+
 
